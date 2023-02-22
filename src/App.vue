@@ -38,6 +38,10 @@
     </v-app-bar>
 
     <v-main>
+      <v-tabs>
+        <v-tab to="/">Chart View</v-tab>
+        <v-tab to="/TableView">Table View</v-tab>
+      </v-tabs>
       <router-view/>
     </v-main>
   </v-app>
