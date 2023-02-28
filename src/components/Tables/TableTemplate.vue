@@ -1,14 +1,16 @@
 <template>
   <div id="container">
-     <div class="d-flex rounded" id="tableBar" v-if="tableSearch">
-        <v-text-field
-          outlined
-          hide-details
-          dense
-          background-color="white"
-          v-model="search"
-        >
-        </v-text-field>
+    <div class="d-flex rounded" id="tableBar" v-if="tableSearch" 
+      :style="{'background-color':tableSearchColor}"
+    >
+      <v-text-field
+        outlined
+        hide-details
+        dense
+        background-color="white"
+        v-model="search"
+      >
+      </v-text-field>
     </div>
     <v-data-table
       :items="tableData"
@@ -34,7 +36,8 @@ export default {
     tableItemsPerPage: Number,
     tableHideDefaultFooter: Boolean,
     tableMultiSort: Boolean,
-    tableSearch: Boolean
+    tableSearch: Boolean,
+    tableSearchColor: String
   },
   components: {
   },
@@ -43,7 +46,8 @@ export default {
       search: "",
       headers: [],
       tableSort: [],
-      tableSortDesc: []
+      tableSortDesc: [],
+      color: "blue"
     }
   },
   methods:
@@ -82,7 +86,6 @@ export default {
 }
 #tableBar {
   padding: 10px;
-  background-color: lightblue;
   margin-bottom: 5px;
 }
 </style>

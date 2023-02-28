@@ -8,15 +8,14 @@
     </div>
     <div class="tableDiv">
       <h2>Draggable Table</h2>
-      <draggable-table-template 
-        :tableData="dragableTableData"
-        @update="sortedTableDataUpdate"
+      <draggable-table-template
+        :tableData="dragableTableData" @update="val => { dragableTableData = val }"
       />
     </div>
     <div class="tableDiv">
       <h2>Edit Table</h2>
       <edit-table-template 
-        :tableData="tableData"
+        :tableData="tableData" @update="val => { tableData = val }"
       />
     </div>
   </div>
@@ -28,7 +27,7 @@ import DraggableTableTemplate from '@/components/Tables/DraggableTableTemplate.v
 import EditTableTemplate from '@/components/Tables/EditTableTemplate.vue'
 
 export default {
-  name: 'ChartView',
+  name: 'TableView',
   components: { TableTemplate, DraggableTableTemplate, EditTableTemplate },
   data() {
     return {
@@ -168,24 +167,15 @@ export default {
           "phone": "+1 (925) 412-3666"
         }
       ],
-      sortedTableData: []
     }
   },
   methods:
   {
-    sortedTableDataUpdate (value) {
-      this.sortedTableData = value;
-      
-    }
   },
   created()
   {
   },
   watch: {
-    sortedTableData()
-    {
-      this.dragableTableData = this.sortedTableData;
-    }
   }
 }
 </script>

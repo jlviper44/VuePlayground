@@ -47,7 +47,7 @@ export default {
               value: header
             };
             if(!this.headers.some(header => header.text == h.text))
-              if(h.text != "_id" && h.text != "id")
+              if(h.text != "_id" && h.text != "id" && h.text != "Index")
                 this.headers.push(h);
           });
         });
@@ -60,7 +60,7 @@ export default {
     dataTableSortOrder(event) {
       const movedItem = this.tableDataLocal.splice(event.oldIndex, 1)[0];
       this.tableDataLocal.splice(event.newIndex, 0, movedItem);
-      this.$emit('update', this.tableDataLocal)
+      this.$emit('update', this.tableDataLocal);
     },
   },
   created()
